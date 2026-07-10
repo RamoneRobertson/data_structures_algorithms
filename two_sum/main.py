@@ -1,10 +1,18 @@
 def twoSum(nums: List[int], target: int) -> List[int]:
-    # inputs - list of unique numbers (list) : target num
+    hashmap = {}
+
+    # populate hashmap
+    for i in range(len(nums)):
+        hashmap[nums[i]] = i
+
     for i in range(len(nums)):
         complement = target - nums[i]
-        for j in range(i+1, len(nums)):
-            if nums[j] == complement:
-                return (i, j)
+        if complement in hashmap and hashmap[complement] != i:
+            return [i, hashmap[complement]]
+
+    return []
+
+
 
 test_case1 = [2,7,11,15]
 test_case2 = [3,2,4]
