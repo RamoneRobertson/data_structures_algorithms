@@ -6,7 +6,7 @@ def is_palindrome(text: str) -> bool:
         if text[left] != text[right]:
             return False
 
-        left +=1
+        left += 1
         right -= 1
 
     return True
